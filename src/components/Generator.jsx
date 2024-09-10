@@ -58,7 +58,7 @@ const Generator = (props) => {
 
 
             {/* Section 1 */}
-            <Header index={'01'} title={'Pick your poison'} description={'Select the workout you wish to endure'} />
+            <Header index={'01'} title={'Pick your poison'} description={'Select the workout you wish to endure.'} />
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
                 {/* This is grabbing data from the exerciseData file, accessing the object.key from WORKOUT */}
                 {Object.keys(WORKOUTS).map((type, typeIndex) => {
@@ -77,7 +77,7 @@ const Generator = (props) => {
 
 
             {/* Section 2 */}
-            <Header index={'02'} title={'Lock on targets'} description={'Select the muscles judged for annihilation'} />
+            <Header index={'02'} title={'Lock on targets'} description={'Select the muscles judged for annihilation. Choose up to 3 with the  Individual preset.'} />
             <div className='bg-stone-950 border border-solid border-red-400 rounded-lg flex flex-col'>
                 <button onClick={toggleModal} className='relative flex p-3 items-center justify-center'>
                     <p className='capitalize'>{muscles.length === 0 ? 'Select muscle groups' : muscles.join(' + ')}</p>
@@ -116,7 +116,7 @@ const Generator = (props) => {
                 })}
             </div>
 
-            <Button func={updateWorkout} text={'Formulate'} />
+            <Button func={updateWorkout} text={'Click here to Formulate'} />
 
         </SectionWrapper>
     )
