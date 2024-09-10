@@ -2,30 +2,37 @@ import { useState } from 'react'
 import Hero from './components/Hero'
 import Generator from './components/Generator'
 import Workout from './components/Workout'
+import { generateWorkout } from './utils/functions'
 
 
-const App = () => {
+function App() {
   const [workout, setWorkout] = useState(null)
-  const [poison, setPoison] = useState('individual');
-  const [muscles, setMuscles] = useState([]);
-  const [goal, setGoal] = useState('strength_power');
+  const [poison, setPoison] = useState('individual')
+  const [muscles, setMuscles] = useState([])
+  const [goal, setGoal] = useState('strength_power')
 
   function updateWorkout() {
     if (muscles.length < 1) {
       return
     }
-    let newWorkout = generateWorkout(poison, muscles, goal)
+    let newWorkout = generateWorkout({ poison, muscles, goal })
     setWorkout(newWorkout)
+
+    window.location.href = '#workout'
   }
 
-
   return (
-    <main className='min-h-screen flex flex-col bg-gradient-to-r from-zinc-700 to-zinc-900 text-white text-sm sm:text-base'>
+    <main className='min-h-screen flex flex-col bg-gradient-to-r from-stone-800 to-stone-950 text-white text-sm sm:text-base'>
       <Hero />
-      <Generator poison={poison} setPoison={setPoison}
-        muscles={muscles} setMuscles={setMuscles}
-        goal={goal} setGoal={setGoal}
-        updateWorkout={updateWorkout} />
+      <Generator
+        poison={poison}
+        setPoison={setPoison}
+        muscles={muscles}
+        setMuscles={setMuscles}
+        goal={goal}
+        setGoal={setGoal}
+        updateWorkout={updateWorkout}
+      />
       {workout && (<Workout workout={workout} />)}
     </main>
   )
