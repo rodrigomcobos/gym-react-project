@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Workout = () => {
+const Workout = (props) => {
+    const { workout } = props;
+
     return (
         <div>Workout</div>
     )
